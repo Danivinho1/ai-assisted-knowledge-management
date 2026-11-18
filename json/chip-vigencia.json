@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "inline-flex",
+    "align-items": "center",
+    "gap": "6px",
+    "padding": "3px 10px",
+    "border-radius": "999px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "white-space": "nowrap"
+  },
+  "attributes": {
+    "class": "=if(@currentField == '', 'sp-field-severity--low', if(Date(@currentField) < @now, 'sp-field-severity--blocked', if(Date(@currentField) <= @now + 2592000000, 'sp-field-severity--warning', 'sp-field-severity--good')))"
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "style": {
+        "font-size": "12px"
+      },
+      "attributes": {
+        "iconName": "=if(@currentField == '', 'Remove', if(Date(@currentField) < @now, 'ErrorBadge', if(Date(@currentField) <= @now + 2592000000, 'Warning', 'CheckMark')))"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "=if(@currentField == '', 'Sin vigencia', if(Date(@currentField) < @now, 'Venció hace ' + toString(abs(floor((Date(@currentField) - @now) / 86400000))) + ' d', if(Date(@currentField) <= @now + 2592000000, 'Vence en ' + toString(floor((Date(@currentField) - @now) / 86400000)) + ' d', 'Vigente · ' + toString(floor((Date(@currentField) - @now) / 86400000)) + ' d')))"
+    }
+  ]
+}

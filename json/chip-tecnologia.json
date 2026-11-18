@@ -1,0 +1,30 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "inline-flex",
+    "align-items": "center",
+    "gap": "6px",
+    "padding": "2px 10px",
+    "border": "1px solid #d2d0ce",
+    "border-radius": "999px",
+    "font-size": "12px",
+    "color": "#323130",
+    "white-space": "nowrap"
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "style": {
+        "width": "8px",
+        "height": "8px",
+        "border-radius": "50%",
+        "background-color": "=if(@currentField == 'CrowdStrike', '#E01E2B', if(@currentField == 'Microsoft Defender', '#0078D4', if(@currentField == 'Azure Entra ID', '#005A9E', if(@currentField == 'GCP', '#34A853', if(@currentField == 'Proofpoint', '#F59B00', '#8A8886')))))"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "@currentField"
+    }
+  ]
+}

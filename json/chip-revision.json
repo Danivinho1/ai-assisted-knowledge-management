@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "inline-flex",
+    "align-items": "center",
+    "gap": "6px",
+    "padding": "3px 10px",
+    "border-radius": "999px",
+    "font-size": "12px",
+    "font-weight": "600",
+    "white-space": "nowrap"
+  },
+  "attributes": {
+    "class": "=if(@currentField == 'OK', 'sp-field-severity--good', if(@currentField == 'Renovar', 'sp-field-severity--warning', if(@currentField == '', 'sp-field-severity--low', 'sp-field-severity--severeWarning')))"
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "style": {
+        "font-size": "12px"
+      },
+      "attributes": {
+        "iconName": "=if(@currentField == 'OK', 'Completed', if(@currentField == 'Renovar', 'Refresh', 'Edit'))"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "=@currentField"
+    }
+  ]
+}

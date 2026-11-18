@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Vista previa de tarjeta</title>
+<style>
+  body{font-family:"Segoe UI",Arial,sans-serif;background:#f3f2f1;margin:0;padding:32px;display:flex;justify-content:center}
+  .card{width:340px;background:#fff;border:1px solid #e1dfdd;border-top:4px solid #ffb900;border-radius:10px;padding:16px;box-sizing:border-box;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+  .top{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+  .chip{display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+  .warn{background:#fff4ce;color:#835b00}
+  .cat{color:#0f548c;font-size:12px;font-weight:600}
+  .tactic{background:#f1e9fa;color:#5c2d91}
+  h3{font-size:15px;margin:0 0 4px;color:#201f1e;line-height:20px}
+  .alert{font-size:11px;color:#605e5c;font-family:Consolas,monospace;margin-bottom:10px}
+  .sum{font-size:12px;color:#484644;line-height:18px;margin-bottom:12px}
+  .rec{background:#f3f9fd;border-left:3px solid #0f6cbd;padding:8px 10px;border-radius:4px}
+  .rec b{display:block;font-size:10px;letter-spacing:.06em;color:#0f6cbd;margin-bottom:2px}
+  .rec span{font-size:12px;color:#201f1e;line-height:16px}
+  .foot{display:flex;justify-content:space-between;font-size:11px;color:#605e5c;margin-top:12px}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="top">
+      <span class="cat">Ubicación</span>
+      <span class="chip warn">⚠ Vence en 3 d</span>
+    </div>
+    <h3>Acceso desde dispositivo móvil validado con MFA</h3>
+    <div class="alert">SOC-0001 · Impossible Travel Example</div>
+    <div style="margin-bottom:10px"><span class="chip tactic">🛡 TA0001 - Initial Access</span></div>
+    <div class="sum">Ejemplo ficticio de acceso validado desde un dispositivo registrado con autenticación multifactor.</div>
+    <div class="rec"><b>CONSIDERAR</b><span>Considerar actividad legítima cuando se observe este mismo contexto de autenticación.</span></div>
+    <div class="foot"><span>Vigencia: 22/11/2026</span><span>Revisión: OK</span></div>
+  </div>
+</body>
+</html>

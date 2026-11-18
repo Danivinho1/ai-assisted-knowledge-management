@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/column-formatting.schema.json",
+  "elmType": "div",
+  "style": {
+    "display": "inline-flex",
+    "align-items": "center",
+    "gap": "6px",
+    "padding": "3px 10px",
+    "border-radius": "6px",
+    "background-color": "#EFF6FC",
+    "color": "#0F548C",
+    "font-size": "12px",
+    "font-weight": "600",
+    "white-space": "nowrap"
+  },
+  "children": [
+    {
+      "elmType": "span",
+      "style": {
+        "font-size": "12px"
+      },
+      "attributes": {
+        "iconName": "=if(@currentField == 'Cuenta de servicio', 'Settings', if(@currentField == 'Usuario', 'Contact', if(@currentField == 'Equipo', 'Devices2', if(@currentField == 'Servidor', 'System', if(@currentField == 'Aplicación', 'AppIconDefault', if(@currentField == 'Correo', 'Mail', if(@currentField == 'Nube', 'Cloud', if(@currentField == 'Ubicación', 'Airplane', 'Tag'))))))))"
+      }
+    },
+    {
+      "elmType": "span",
+      "txtContent": "@currentField"
+    }
+  ]
+}

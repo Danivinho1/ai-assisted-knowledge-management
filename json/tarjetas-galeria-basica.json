@@ -1,0 +1,150 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": 400,
+  "width": 340,
+  "hideSelection": false,
+  "fillHorizontally": true,
+  "formatter": {
+    "elmType": "div",
+    "style": {
+      "display": "flex",
+      "flex-direction": "column",
+      "box-sizing": "border-box",
+      "width": "100%",
+      "height": "100%",
+      "background-color": "#ffffff",
+      "border": "1px solid #e1dfdd",
+      "border-radius": "10px",
+      "overflow": "hidden",
+      "text-align": "left"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "style": {
+          "height": "6px",
+          "width": "100%"
+        },
+        "attributes": {
+          "class": "=if([$field_8] == '', 'sp-field-severity--low', if(Date([$field_8]) < @now, 'sp-field-severity--blocked', if(Date([$field_8]) <= @now + 2592000000, 'sp-field-severity--warning', 'sp-field-severity--good')))"
+        }
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "display": "flex",
+          "flex-direction": "column",
+          "padding": "14px",
+          "row-gap": "8px"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "display": "flex",
+              "justify-content": "space-between",
+              "align-items": "center"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "style": {
+                  "font-size": "12px",
+                  "font-weight": "600",
+                  "color": "#0F548C"
+                },
+                "txtContent": "[$field_5]"
+              },
+              {
+                "elmType": "span",
+                "style": {
+                  "font-size": "12px",
+                  "font-weight": "600",
+                  "padding": "2px 10px",
+                  "border-radius": "999px",
+                  "margin-left": "auto"
+                },
+                "attributes": {
+                  "class": "=if([$field_8] == '', 'sp-field-severity--low', if(Date([$field_8]) < @now, 'sp-field-severity--blocked', if(Date([$field_8]) <= @now + 2592000000, 'sp-field-severity--warning', 'sp-field-severity--good')))"
+                },
+                "txtContent": "=if([$field_8] == '', 'Sin vigencia', if(Date([$field_8]) < @now, 'Vencida', if(Date([$field_8]) <= @now + 2592000000, 'Por vencer', 'Vigente')))"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "font-size": "15px",
+              "font-weight": "700",
+              "color": "#201f1e",
+              "height": "40px",
+              "overflow": "hidden"
+            },
+            "txtContent": "[$field_1]"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "font-size": "11px",
+              "color": "#605e5c",
+              "height": "32px",
+              "overflow": "hidden",
+              "font-family": "Consolas, monospace",
+              "line-height": "16px"
+            },
+            "txtContent": "=if([$field_2] == '', [$Title], [$field_2] + ' · ' + [$Title])"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "font-size": "11px",
+              "color": "#605e5c"
+            },
+            "txtContent": "=[$field_4] + ' · ' + [$field_3] + ' · ' + [$field_12]"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "font-size": "12px",
+              "color": "#484644",
+              "line-height": "18px",
+              "height": "84px",
+              "overflow": "hidden"
+            },
+            "txtContent": "[$field_6]"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "background-color": "#F3F9FD",
+              "border-left": "3px solid #0F6CBD",
+              "padding": "8px 10px",
+              "height": "64px",
+              "overflow": "hidden"
+            },
+            "children": [
+              {
+                "elmType": "div",
+                "style": {
+                  "font-size": "10px",
+                  "font-weight": "700",
+                  "color": "#0F6CBD"
+                },
+                "txtContent": "CONSIDERAR"
+              },
+              {
+                "elmType": "div",
+                "style": {
+                  "font-size": "12px",
+                  "color": "#201f1e",
+                  "line-height": "16px"
+                },
+                "txtContent": "[$field_7]"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

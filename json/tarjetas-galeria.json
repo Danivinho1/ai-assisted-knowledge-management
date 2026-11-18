@@ -1,0 +1,270 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/sp/v2/tile-formatting.schema.json",
+  "height": 400,
+  "width": 340,
+  "hideSelection": false,
+  "fillHorizontally": true,
+  "formatter": {
+    "elmType": "div",
+    "style": {
+      "display": "flex",
+      "flex-direction": "column",
+      "box-sizing": "border-box",
+      "width": "100%",
+      "height": "100%",
+      "padding": "16px",
+      "gap": "10px",
+      "background-color": "#ffffff",
+      "border": "1px solid #e1dfdd",
+      "border-top": "='4px solid ' + if([$field_8] == '', '#8A8886', if(Date([$field_8]) < @now, '#D13438', if(Date([$field_8]) <= @now + 2592000000, '#C19C00', '#107C10')))",
+      "border-radius": "10px",
+      "box-shadow": "0 2px 6px rgba(0,0,0,0.08)",
+      "overflow": "hidden",
+      "text-align": "left"
+    },
+    "children": [
+      {
+        "elmType": "div",
+        "style": {
+          "display": "flex",
+          "justify-content": "space-between",
+          "align-items": "center",
+          "gap": "8px"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "display": "inline-flex",
+              "align-items": "center",
+              "gap": "6px",
+              "padding": "3px 10px",
+              "border-radius": "6px",
+              "background-color": "#EFF6FC",
+              "color": "#0F548C",
+              "font-size": "12px",
+              "font-weight": "600",
+              "white-space": "nowrap"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "style": {
+                  "font-size": "12px"
+                },
+                "attributes": {
+                  "iconName": "=if([$field_5] == 'Cuenta de servicio', 'Settings', if([$field_5] == 'Usuario', 'Contact', if([$field_5] == 'Equipo', 'Devices2', if([$field_5] == 'Servidor', 'System', if([$field_5] == 'Aplicación', 'AppIconDefault', if([$field_5] == 'Correo', 'Mail', if([$field_5] == 'Nube', 'Cloud', if([$field_5] == 'Ubicación', 'Airplane', 'Tag'))))))))"
+                }
+              },
+              {
+                "elmType": "span",
+                "txtContent": "[$field_5]"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "display": "inline-flex",
+              "align-items": "center",
+              "gap": "6px",
+              "padding": "3px 10px",
+              "border-radius": "999px",
+              "font-size": "12px",
+              "font-weight": "600",
+              "white-space": "nowrap",
+              "margin-left": "auto"
+            },
+            "attributes": {
+              "class": "=if([$field_8] == '', 'sp-field-severity--low', if(Date([$field_8]) < @now, 'sp-field-severity--blocked', if(Date([$field_8]) <= @now + 2592000000, 'sp-field-severity--warning', 'sp-field-severity--good')))"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "style": {
+                  "font-size": "12px"
+                },
+                "attributes": {
+                  "iconName": "=if([$field_8] == '', 'Remove', if(Date([$field_8]) < @now, 'ErrorBadge', if(Date([$field_8]) <= @now + 2592000000, 'Warning', 'CheckMark')))"
+                }
+              },
+              {
+                "elmType": "span",
+                "txtContent": "=if([$field_8] == '', 'Sin vigencia', if(Date([$field_8]) < @now, 'Venció hace ' + toString(abs(floor((Date([$field_8]) - @now) / 86400000))) + ' d', if(Date([$field_8]) <= @now + 2592000000, 'Vence en ' + toString(floor((Date([$field_8]) - @now) / 86400000)) + ' d', 'Vigente · ' + toString(floor((Date([$field_8]) - @now) / 86400000)) + ' d')))"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "font-size": "15px",
+          "font-weight": "700",
+          "color": "#201f1e",
+          "line-height": "20px",
+          "height": "40px",
+          "overflow": "hidden"
+        },
+        "txtContent": "[$field_1]"
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "font-size": "11px",
+          "color": "#605e5c",
+          "height": "32px",
+          "overflow": "hidden",
+          "font-family": "Consolas, monospace",
+          "line-height": "16px"
+        },
+        "txtContent": "=if([$field_2] == '', [$Title], [$field_2] + ' · ' + [$Title])"
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "display": "flex",
+          "align-items": "center",
+          "gap": "8px",
+          "font-size": "11px",
+          "color": "#605e5c",
+          "flex-wrap": "wrap"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "display": "inline-flex",
+              "align-items": "center",
+              "gap": "6px",
+              "padding": "2px 10px",
+              "border": "1px solid #d2d0ce",
+              "border-radius": "999px",
+              "font-size": "12px",
+              "color": "#323130",
+              "white-space": "nowrap"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "style": {
+                  "width": "8px",
+                  "height": "8px",
+                  "border-radius": "50%",
+                  "background-color": "=if([$field_4] == 'CrowdStrike', '#E01E2B', if([$field_4] == 'Microsoft Defender', '#0078D4', if([$field_4] == 'Azure Entra ID', '#005A9E', if([$field_4] == 'GCP', '#34A853', if([$field_4] == 'Proofpoint', '#F59B00', '#8A8886')))))"
+                }
+              },
+              {
+                "elmType": "span",
+                "txtContent": "[$field_4]"
+              }
+            ]
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "display": "inline-flex",
+              "align-items": "center",
+              "gap": "6px",
+              "padding": "2px 10px",
+              "border-radius": "999px",
+              "font-size": "12px",
+              "font-weight": "600",
+              "white-space": "nowrap",
+              "background-color": "#F1E9FA",
+              "color": "#5C2D91"
+            },
+            "children": [
+              {
+                "elmType": "span",
+                "style": {
+                  "font-size": "12px"
+                },
+                "attributes": {
+                  "iconName": "Shield"
+                }
+              },
+              {
+                "elmType": "span",
+                "txtContent": "[$field_3]"
+              }
+            ]
+          },
+          {
+            "elmType": "span",
+            "txtContent": "[$field_12]"
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "font-size": "12px",
+          "color": "#484644",
+          "line-height": "18px",
+          "height": "84px",
+          "overflow": "hidden"
+        },
+        "txtContent": "[$field_6]"
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "background-color": "#F3F9FD",
+          "border-left": "3px solid #0F6CBD",
+          "border-radius": "4px",
+          "padding": "8px 10px",
+          "height": "64px",
+          "overflow": "hidden"
+        },
+        "children": [
+          {
+            "elmType": "div",
+            "style": {
+              "font-size": "10px",
+              "font-weight": "700",
+              "letter-spacing": "0.06em",
+              "color": "#0F6CBD",
+              "margin-bottom": "2px"
+            },
+            "txtContent": "CONSIDERAR"
+          },
+          {
+            "elmType": "div",
+            "style": {
+              "font-size": "12px",
+              "color": "#201f1e",
+              "line-height": "16px"
+            },
+            "txtContent": "[$field_7]"
+          }
+        ]
+      },
+      {
+        "elmType": "div",
+        "style": {
+          "display": "flex",
+          "justify-content": "space-between",
+          "align-items": "center",
+          "font-size": "11px",
+          "color": "#605e5c",
+          "margin-top": "auto",
+          "gap": "12px"
+        },
+        "children": [
+          {
+            "elmType": "span",
+            "txtContent": "='Vigencia: ' + if([$field_8] == '', 'sin definir', toLocaleDateString([$field_8]))"
+          },
+          {
+            "elmType": "span",
+            "txtContent": "=if([$field_9] == 'OK', 'Revisión: OK', 'Revisión: ' + [$field_9])",
+            "style": {
+              "margin-left": "auto"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
